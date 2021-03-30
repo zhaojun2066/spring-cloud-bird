@@ -1,0 +1,4 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.bird.cloud.cache.redis.RedisTemplateConfig,\
+ com.bird.cloud.cache.redis.redisson.RedissonAutoConfiguration

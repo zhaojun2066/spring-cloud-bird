@@ -1,0 +1,8 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.bird.cloud.mybatis.config.TransactionManagerConfiguration,\
+com.bird.cloud.mybatis.config.MybatisAutoConfiguration,\
+com.bird.cloud.mybatis.config.MyBatisMapperScannerConfig
+
+
+

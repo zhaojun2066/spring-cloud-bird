@@ -1,0 +1,9 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.bird.cloud.seata.feign.SeataFeignAutoConfig,\
+com.bird.cloud.seata.rest.SeataRestTemplateAutoConfiguration,\
+com.bird.cloud.seata.web.SeataHandlerInterceptorConfiguration,\
+com.bird.cloud.seata.feign.hystrix.SeataHystrixAutoConfiguration
+
+
+

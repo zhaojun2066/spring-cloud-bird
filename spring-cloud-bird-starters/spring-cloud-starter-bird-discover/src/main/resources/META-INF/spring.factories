@@ -1,0 +1,9 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.bird.cloud.discover.DiscoverAutoConfiguration,\
+com.bird.cloud.discover.feign.FeignConfig
+
+# Bootstrap components
+org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+com.bird.cloud.discover.eureka.EurekaConfigBootstrapConfiguration
+

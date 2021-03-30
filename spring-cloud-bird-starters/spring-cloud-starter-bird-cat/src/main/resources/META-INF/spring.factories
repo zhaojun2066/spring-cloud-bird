@@ -1,0 +1,8 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.bird.cloud.monitor.cat.aop.CatAopConfig,\
+com.bird.cloud.monitor.cat.web.CatFilterConfigure,\
+com.bird.cloud.monitor.cat.mybatis.CatMybatisPluginConfig
+
+
+
