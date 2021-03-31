@@ -15,6 +15,7 @@
         <module>spring-cloud-bird-common</module>
         <module>spring-cloud-bird-dependencies</module>
         <module>spring-cloud-bird-starters</module>
+        <module>spring-cloud-bird-examples</module>
     </modules>
 
 
