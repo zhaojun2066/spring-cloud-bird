@@ -13,11 +13,11 @@
     <artifactId>course-api</artifactId>
 
     <packaging>jar</packaging>
-  <!--  <dependencies>
+    <dependencies>
         <dependency>
-            <groupId>cn.ce.cloud</groupId>
+            <groupId>com.bird.cloud</groupId>
             <artifactId>spring-cloud-bird-common</artifactId>
         </dependency>
-    </dependencies>-->
+    </dependencies>
 
 </project>

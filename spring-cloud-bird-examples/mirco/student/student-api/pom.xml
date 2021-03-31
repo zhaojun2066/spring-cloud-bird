@@ -12,5 +12,17 @@
 
     <artifactId>student-api</artifactId>
 
+    <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>com.bird.cloud</groupId>
+            <artifactId>spring-cloud-bird-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.bird.cloud</groupId>
+            <artifactId>course-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>

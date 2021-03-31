@@ -1,0 +1,74 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/student_course?useSSL=false&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: xxxx
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      validationTimeout: 3000
+      minimum-idle: 5
+      idle-timeout: 50000
+      maximum-pool-size: 30
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 60000
+      connection-timeout: 60000
+      connection-test-query: SELECT 1
+
+
+#  redis:
+#    timeout: 3000
+#    #    password: redis@q1w2e3
+#    jedis:
+#      pool:
+#        minIdle: 5
+#        maxIdle: 10 #最大空闲数
+#        maxTotal: 25 #控制一个pool可分配多少个jedis实例,用来替换上面的redis.maxActive,如果是jedis 2.4以后用该属性
+#        maxWaitMillis: 1000 #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+#        minEvictableIdleTimeMillis: 300000 #连接的最小空闲时间 默认1800000毫秒(30分钟)
+#        timeBetweenEvictionRunsMillis: 30000 #逐出扫描的时间间隔(毫秒) 如果为负数,则不运行逐出线程, 默认-1
+#        testOnBorrow: true #是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个
+#        testWhileIdle: true #在空闲时检查有效性, 默认false
+#    cluster:
+#      nodes: 10.12.40.253:7000, 10.12.40.252:7000, 10.12.40.251:7000
+#      max-redirects: 2
+ce:
+  cloud:
+    mybatis:
+      mapperLocations: classpath*:mapper/*.xml
+      scanPackages: com.bird.**.dao
+      typeAliasesPackage: com.bird.**.entity
+
+server:
+  port: 9010
+
+feign:
+  hystrix:
+    enabled: true
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+
+ribbon:
+  ConnectTimeout: 2000        #创建连接的超时时间 毫秒
+  ReadTimeout: 8000            #处理请求的超时时间 毫秒
+  MaxAutoRetries: 1            #对当前实例的重试次数
+  MaxAutoRetriesNextServer: 1  #切换实例的重试次数
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          semaphore:
+            maxConcurrentRequests: 500
+          thread:
+            timeoutInMilliseconds: 9000   #hystrix线程超过多少毫秒熔断，数值大于ribbon的处理超时时间，留给ribbon重试，否则直接熔断，重试就没有意义了
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://10.12.52.22:8001/eureka/
