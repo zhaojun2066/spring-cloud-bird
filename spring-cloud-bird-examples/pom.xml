@@ -17,6 +17,15 @@
         <module>mirco/course/course-server</module>
         <module>mirco/student/student-api</module>
         <module>mirco/student/student-server</module>
+        <module>seata/order/seata-order-api</module>
+        <module>seata/order/seata-order-server</module>
+        <module>seata/storage/seata-storage-api</module>
+        <module>seata/storage/seata-storage-server</module>
+        <module>seata/business/seata-business-server</module>
+        <module>monitor/spring-cloud-starter-bird-cat-example</module>
+        <module>job/spring-cloud-starter-bird-xxl-job-example</module>
+        <module>mq/spring-cloud-starter-bird-rocketmq-exmple/consumer</module>
+        <module>mq/spring-cloud-starter-bird-rocketmq-exmple/producer</module>
     </modules>
 
 

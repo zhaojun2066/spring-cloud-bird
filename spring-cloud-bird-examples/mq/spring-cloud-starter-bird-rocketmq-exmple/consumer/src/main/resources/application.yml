@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: mq-producer
+
+
+ce:
+  cloud:
+    mq:
+      rocketmq:
+        name-server: x.x.x.x:9876
+        accessChannel: ''
+        producer:
+          group: test
+        consumer:
+          group: my-group1
+
+
+
+demo:
+  rocketmq:
+    topic: string_hello
+    userTopic: user
+

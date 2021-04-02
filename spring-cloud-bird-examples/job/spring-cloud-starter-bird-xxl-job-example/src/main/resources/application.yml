@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: spring-cloud-starter-bird-xxl-job-example
+
+server:
+  port: 5000
+ce:
+  cloud:
+    job:
+      xxl:
+        adminAddresses: 'http://127.0.0.1:8080/xxl-job-admin'
+        accessToken: xxl
+        executor:
+          appname: ${spring.application.name}
+          address:
+          ip:
+          port: 9998
+          logPath:
+          logRetentionDays: 1
+
+
+
+
+
+
+log:
+  path: logs/aa.log

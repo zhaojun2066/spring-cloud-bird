@@ -4,7 +4,7 @@ package com.bird.cloud.example.student.server.exception;
 import com.bird.cloud.common.exception.BusinessException;
 
 /**
- * @program: spring-cloud-ce
+ * @program: spring-cloud-bird
  * @description:
  * @author: JuFeng(ZhaoJun)
  * @create: 2021-01-11 15:14

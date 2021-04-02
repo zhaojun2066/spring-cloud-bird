@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<springProperty scope="context" name="log_dir" source="log.path"/>
+	<springProperty scope="context" name="logName" source="spring.application.name"/>
+
+	<!--<include resource="org/springframework/boot/logging/logback/base.xml" />-->
+	<!-- <logger name="org.springframework.web" level="ERROR" /> -->
+	<springProfile name="local,default,test">
+		<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+			<encoder>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%X] [%thread{12}] %logger{36} [%marker] - %msg%n</pattern>
+			</encoder>
+		</appender>
+		<logger name="org.hibernate.SQL" level="DEBUG" />
+		<logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE" />
+		<logger name="org.hibernate.type.descriptor.sql.BasicExtractor" level="TRACE" />
+		<logger name="org.hibernate.engine.QueryParameters" level="DEBUG" />
+		<logger name="org.hibernate.engine.query.HQLQueryPlan" level="DEBUG" />
+	    <root level="INFO">
+	       <appender-ref ref="console" />
+	    </root>
+	</springProfile>
+	<springProfile name="local,test,prod,pre">
+		<appender name="file"
+			  class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log_dir}/${logName}.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!--日志输出位置 可相对、和绝对路径 -->
+            <fileNamePattern>${log_dir}/%d{yyyy-MM-dd}/${logName}.log</fileNamePattern>
+		</rollingPolicy>
+			<encoder>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%-45X{requestId}] [%thread{12}] %logger{36} [%X{methodName}] [%marker] - %msg%n</pattern>
+				<charset>UTF-8</charset>
+			</encoder>
+		</appender>
+		<appender name="error"
+				  class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<file>${log_dir}/error.log</file>
+			<filter class="ch.qos.logback.classic.filter.LevelFilter">   
+		      <level>ERROR</level>   
+		      <onMatch>ACCEPT</onMatch>   
+		      <onMismatch>DENY</onMismatch>   
+		    </filter>   
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<!--日志输出位置 可相对、和绝对路径 -->
+				<fileNamePattern>${log_dir}/%d{yyyy-MM-dd}/error.log</fileNamePattern>
+			</rollingPolicy>
+			<encoder>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%-45X{requestId}] [%thread{12}] %logger{36} [%X] [%marker] - %msg%n</pattern>
+				<charset>UTF-8</charset>
+			</encoder>
+		</appender>
+		<appender name="file_elk" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+			<file>${log_dir}/elk.log</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<!-- 日志输出目录 -->
+				<fileNamePattern>${log_dir}/%d{yyyy-MM-dd}/elk.log</fileNamePattern>
+			</rollingPolicy>
+			<!-- 日志输出格式 -->
+			<encoder>
+				<pattern>{"project_name":"sso-300-server","log_time": "%d{yyyy-MM-dd HH:mm:ss.SSS}", "level": "%p", "relative_time": "%r", "thread_name":"%t","MDC": "%X", "class":"%C", "content":"%m", "exception": "%ex" }%n
+				</pattern>
+			</encoder>
+			<!-- 日志输出级别 -->
+			<filter class="ch.qos.logback.classic.filter.LevelFilter">
+				<level>INFO</level>
+				<onMatch>ACCEPT</onMatch>
+				<onMismatch>DENY</onMismatch>
+			</filter>
+		</appender>
+		<logger name="cn.ce" level="info" >
+		</logger>
+		<logger name="org.example" level="info" >
+		</logger>
+		<root>
+			<level value="info" />
+			<appender-ref ref="error" />
+			<appender-ref ref="file" />
+			<appender-ref ref="file_elk"/>
+		</root>
+	</springProfile>
+</configuration>

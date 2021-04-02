@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: mq-producer
+
+
+ce:
+  cloud:
+    mq:
+      rocketmq:
+        nameServer: x.x.x.x:9876
+        accessChannel: ''
+        producer:
+          group: test
+          sendMessageTimeout: 3000
+          compressMsgBodyOverHowmuch: 4096
+          retryTimesWhenSendFailed: 2
+          retryTimesWhenSendAsyncFailed: 2
+          retryAnotherBrokerWhenNotStoreOK: false
+          accessKey: ''
+          secretKey: ''
+          customizedTraceTopic: RMQ_SYS_TRACE_TOPIC
+          enableMsgTrace: false
+          maxMessageSize: 5000
+
+
+demo:
+  rocketmq:
+    topic: string_hello
+    userTopic: user
+
+
+
+log:
+  path: logs

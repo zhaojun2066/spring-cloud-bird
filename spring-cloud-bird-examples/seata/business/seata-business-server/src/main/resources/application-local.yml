@@ -1,0 +1,143 @@
+spring:
+#  cloud:
+#    alibaba:
+#      seata:
+#        tx-service-group: business-service
+
+
+
+server:
+  port: 5000
+
+feign:
+#  hystrix:
+#    enabled: true
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+
+ribbon:
+  ConnectTimeout: 2000        #创建连接的超时时间 毫秒
+  ReadTimeout: 8000            #处理请求的超时时间 毫秒
+  MaxAutoRetries: 1            #对当前实例的重试次数
+  MaxAutoRetriesNextServer: 1  #切换实例的重试次数
+
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          semaphore:
+#            maxConcurrentRequests: 500
+#          thread:
+#            timeoutInMilliseconds: 9000   #hystrix线程超过多少毫秒熔断，数值大于ribbon的处理超时时间，留给ribbon重试，否则直接熔断，重试就没有意义了
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+
+
+seata:
+  enabled: true
+  tx-service-group: my_test_tx_group
+  enable-auto-data-source-proxy: true
+  use-jdk-proxy: false
+  client:
+    tm:
+      degrade-check: false
+      degrade-check-period: 2000
+      degrade-check-allow-times: 10
+      commit-retry-count: 5
+      rollback-retry-count: 5
+    undo:
+      data-validation: true
+      log-serialization: jackson
+      log-table: undo_log
+      only-care-update-columns: true
+    log:
+      exceptionRate: 100
+  service:
+    vgroup-mapping:
+      my_test_tx_group: default
+    grouplist:
+      default: 127.0.0.1:8091
+    enable-degrade: false
+    disable-global-transaction: false
+  transport:
+    shutdown:
+      wait: 3
+    thread-factory:
+      boss-thread-prefix: NettyBoss
+      worker-thread-prefix: NettyServerNIOWorker
+      server-executor-thread-prefix: NettyServerBizHandler
+      share-boss-worker: false
+      client-selector-thread-prefix: NettyClientSelector
+      client-selector-thread-size: 1
+      client-worker-thread-prefix: NettyClientWorkerThread
+      worker-thread-size: default
+      boss-thread-size: 1
+    type: TCP
+    server: NIO
+    heartbeat: true
+    serialization: seata
+    compressor: none
+    enable-client-batch-send-request: true
+  config:
+    type: zk
+#    consul:
+#      server-addr: 127.0.0.1:8500
+#    apollo:
+#      apollo-meta: http://192.168.1.204:8801
+#      app-id: seata-server
+#      namespace: application
+#    etcd3:
+#      server-addr: http://localhost:2379
+#    nacos:
+#      namespace:
+#      serverAddr: 127.0.0.1:8848
+#      group: SEATA_GROUP
+#      username: ""
+#      password: ""
+    zk:
+      server-addr: 10.12.52.21:2181
+      session-timeout: 6000
+      connect-timeout: 2000
+#      username: ""
+#      password: ""
+  registry:
+    type: eureka
+#    consul:
+#      server-addr: 127.0.0.1:8500
+#    etcd3:
+#      serverAddr: http://localhost:2379
+    eureka:
+      weight: 1
+      service-url: http://localhost:8000/eureka
+#    nacos:
+#      application: seata-server
+#      server-addr: 127.0.0.1:8848
+#      group : "SEATA_GROUP"
+#      namespace:
+#      username: ""
+#      password: ""
+#    redis:
+#      server-addr: localhost:6379
+#      db: 0
+#      password:
+#      timeout: 0
+#    sofa:
+#      server-addr: 127.0.0.1:9603
+#      region: DEFAULT_ZONE
+#      datacenter: DefaultDataCenter
+#      group: SEATA_GROUP
+#      addressWaitTime: 3000
+#      application: default
+#    zk:
+#      server-addr: 127.0.0.1:2181
+#      session-timeout: 6000
+#      connect-timeout: 2000
+#      username: ""
+#      password: ""

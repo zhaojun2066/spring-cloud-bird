@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * @program: spring-cloud-ce
+ * @program: spring-cloud-bird
  * @description:
  * @author: JuFeng(ZhaoJun)
  * @create: 2021-01-07 16:26
