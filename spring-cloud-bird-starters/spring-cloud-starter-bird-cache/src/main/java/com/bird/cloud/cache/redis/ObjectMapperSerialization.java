@@ -17,7 +17,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  **/
 public class ObjectMapperSerialization {
 
-    public static void setTemplate(RedisTemplate<Object, Object> template){
+    public static void setTemplate(RedisTemplate<String, Object> template){
         //使用Jackson2JsonRedisSerializer来序列化和反序列化redis的value值（默认使用JDK的序列化方式）
         Jackson2JsonRedisSerializer jacksonSeial = new Jackson2JsonRedisSerializer(Object.class);
 
