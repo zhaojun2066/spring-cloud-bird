@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * @program: ce-microservice
+ * @program: spring-cloud-bird
  * @description: request response  session operations
  * @author: JuFeng(ZhaoJun)
  * @create: 2020-02-10 23:03

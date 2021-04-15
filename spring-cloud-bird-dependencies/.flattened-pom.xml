@@ -48,6 +48,7 @@
     <commons-lang3.version>3.11</commons-lang3.version>
     <guava.version>18.0</guava.version>
     <rocketmq.version>4.8.0</rocketmq.version>
+    <justauth.version>1.16.0</justauth.version>
     <jackson.version>2.10.4</jackson.version>
     <flowable.version>6.5.0</flowable.version>
     <mybatis.spring.version>2.0.3</mybatis.spring.version>
@@ -409,6 +410,16 @@
         <artifactId>poi-ooxml</artifactId>
         <version>${poi.version}</version>
       </dependency>
+      <dependency>
+        <groupId>me.zhyd.oauth</groupId>
+        <artifactId>JustAuth</artifactId>
+        <version>${justauth.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>cn.hutool</groupId>
+        <artifactId>hutool-core</artifactId>
+        <version>${hutool.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
   <build>
@@ -522,28 +533,28 @@
         <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
-        <m2.private.url>10.12.40.166:8081</m2.private.url>
+        <m2.private.url></m2.private.url>
         <spring.active>local</spring.active>
       </properties>
     </profile>
     <profile>
       <id>test</id>
       <properties>
-        <m2.private.url>10.12.40.166:8081</m2.private.url>
+        <m2.private.url></m2.private.url>
         <spring.active>test</spring.active>
       </properties>
     </profile>
     <profile>
       <id>pre</id>
       <properties>
-        <m2.private.url>nexus.300.cn:8081</m2.private.url>
+        <m2.private.url></m2.private.url>
         <spring.active>pre</spring.active>
       </properties>
     </profile>
     <profile>
       <id>prod</id>
       <properties>
-        <m2.private.url>nexus.300.cn:8081</m2.private.url>
+        <m2.private.url></m2.private.url>
         <spring.active>prod</spring.active>
       </properties>
     </profile>
