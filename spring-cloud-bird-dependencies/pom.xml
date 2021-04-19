@@ -53,6 +53,7 @@
         <poi.version>4.1.2</poi.version>
         <justauth.version>1.16.0</justauth.version>
         <spring-cloud-starter-alibaba-nacos-config.version>0.2.1.RELEASE</spring-cloud-starter-alibaba-nacos-config.version>
+        <nacos-config-spring-boot.version>0.2.7</nacos-config-spring-boot.version>
     </properties>
 
     <dependencyManagement>
@@ -68,6 +69,16 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
                 <version>${spring-cloud-starter-alibaba-nacos-config.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>nacos-config-spring-boot-starter</artifactId>
+                <version>${nacos-config-spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>nacos-config-spring-boot-actuator</artifactId>
+                <version>${nacos-config-spring-boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>

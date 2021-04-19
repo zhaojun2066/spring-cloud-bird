@@ -27,6 +27,7 @@
         <module>mq/spring-cloud-starter-bird-rocketmq-exmple/consumer</module>
         <module>mq/spring-cloud-starter-bird-rocketmq-exmple/producer</module>
         <module>nacos/nacos-config-spring-cloud-example</module>
+        <module>nacos/nacos-config-spring-boot-example</module>
     </modules>
 
 

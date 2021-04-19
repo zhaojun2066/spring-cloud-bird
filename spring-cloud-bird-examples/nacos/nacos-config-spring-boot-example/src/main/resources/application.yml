@@ -1,0 +1,28 @@
+
+spring:
+  application:
+    name: nacos-config-spring-boot-example
+
+nacos:
+  config:
+    bootstrap:
+     enable: true  #设置参数nacos.config.bootstrap.enable=true，开启配置预加载功能
+    server-addr: 127.0.0.1:8848
+    data-id: nacos-config-spring-boot-example
+    group: DEFAULT_GROUP
+    type: yaml
+    max-retry: 10
+    auto-refresh: true
+    config-retry-time: 2333 # 主配置 重试时间
+    config-long-poll-timeout: 46000 # 主配置 配置监听长轮询超时时间
+
+
+
+  management:
+    endpoints:
+     web:
+       exposure:
+        include: '*'  # endpoint http://localhost:8080/actuator/nacos-config
+    endpoint:
+      health:
+        show-details: always  # health http://localhost:8080/actuator/health
