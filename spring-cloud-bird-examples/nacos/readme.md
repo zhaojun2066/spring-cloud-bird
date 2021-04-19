@@ -94,4 +94,25 @@ public class ConfigController {
     https://github.com/nacos-group/nacos-spring-boot-project/wiki/spring-boot-0.2.2-%E4%BB%A5%E5%8F%8A-0.1.2%E7%89%88%E6%9C%AC%E6%96%B0%E5%8A%9F%E8%83%BD%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C    
 
 
+
+### 变化之后 重新初始化一些动作，如数据库连接
+```java
+@Configuration
+public class DataSourceConfigure {
+    @Bean
+    @RefreshScope
+    @Primary
+    @ConfigurationProperties(prefix = "spring.datasource")
+    public DataSource dataSource(DataSourceProperties properties){
+        System.out.println("执行了重新获取数据源");
+        return DataSourceBuilder.create(properties.getClassLoader())
+                .type(HikariDataSource.class)
+                .driverClassName(properties.determineDriverClassName())
+                .url(properties.determineUrl())
+                .username(properties.determineUsername())
+                .password(properties.determinePassword())
+                .build();
+    }
+}
+```    
    
