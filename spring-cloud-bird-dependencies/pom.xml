@@ -54,6 +54,8 @@
         <justauth.version>1.16.0</justauth.version>
         <spring-cloud-starter-alibaba-nacos-config.version>0.2.1.RELEASE</spring-cloud-starter-alibaba-nacos-config.version>
         <nacos-config-spring-boot.version>0.2.7</nacos-config-spring-boot.version>
+        <spring-cloud-starter-alibaba-sentinel.version>2.2.3.RELEASE</spring-cloud-starter-alibaba-sentinel.version>
+        <nacos.version>1.8.0</nacos.version>
     </properties>
 
     <dependencyManagement>
@@ -476,6 +478,19 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-core</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+                <version>${spring-cloud-starter-alibaba-sentinel.version}</version>
+            </dependency>
+            <!-- sentinel-datasource-nacos sentinel做持久化用到-->
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-datasource-nacos</artifactId>
+                <version>${nacos.version}</version>
             </dependency>
         </dependencies>
 

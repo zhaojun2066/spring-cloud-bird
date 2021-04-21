@@ -1,0 +1,61 @@
+spring:
+  application:
+    name: sentinel-seivice-provider
+
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        port: "20051"
+        dashboard: 127.0.0.1:8080   # 配置Sentinel dashborad 控制台地址
+      datasource:                   #添加Nacos数据源配置
+        flow:
+          nacos:                          #数据源为NACOS中
+            server-addr: 127.0.0.1:8848  #NACOS SERVER URL
+            dataId: ${spring.application.name}-flow-rules
+            groupId: SENTINEL_GROUP
+            #data-type: json
+            rule-type: flow
+        authority:
+          nacos:                          #数据源为NACOS中
+            server-addr: 127.0.0.1:8848   #NACOS SERVER URL
+            dataId: ${spring.application.name}-authority-rules
+            groupId: DEFAULT_GROUP
+            #data-type: json
+            rule-type: authority
+        degrade:
+          nacos:                          #数据源为NACOS中
+            server-addr: 127.0.0.1:8848   #NACOS SERVER URL
+            dataId: ${spring.application.name}-degrade-rules
+            groupId: SENTINEL_GROUP
+            #data-type: json
+            rule-type: degrade
+        param-flow:
+          nacos:                          #数据源为NACOS中
+            server-addr: 127.0.0.1:8848  #NACOS SERVER URL
+            dataId: ${spring.application.name}-param-flow-rules
+            groupId: SENTINEL_GROUP
+            #data-type: json
+            rule-type: param-flow
+        system:
+          nacos:                          #数据源为NACOS中
+            server-addr: 127.0.0.1:8848  #NACOS SERVER URL
+            dataId: ${spring.application.name}-system-rules
+            groupId: SENTINEL_GROUP
+            #data-type: json
+            rule-type: system
+server:
+  port: 9005
+
+bird:
+  nacos:
+    config:
+     serverAddr: 127.0.0.1:8848
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+
+

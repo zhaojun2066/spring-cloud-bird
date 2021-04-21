@@ -19,41 +19,43 @@
     </license>
   </licenses>
   <properties>
-    <mybatisplus.version>3.3.2</mybatisplus.version>
-    <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
-    <curator.version>2.12.0</curator.version>
+    <zkclient.version>0.11</zkclient.version>
+    <junit.version>4.12</junit.version>
     <springboot.version>2.3.5.RELEASE</springboot.version>
-    <lombok.version>1.18.10</lombok.version>
-    <zookeeper.version>3.4.12</zookeeper.version>
-    <seata-spring-boot-starter.version>1.4.0</seata-spring-boot-starter.version>
-    <pagehelper.starter.version>1.2.13</pagehelper.starter.version>
-    <xxl-job-core.version>2.2.0</xxl-job-core.version>
-    <commons-io.version>2.8.0</commons-io.version>
     <gson.version>2.8.0</gson.version>
-    <cat.version>3.0.0</cat.version>
-    <seata.version>1.4.0</seata.version>
-    <redisson.version>3.11.6</redisson.version>
-    <mybatis.version>3.5.3</mybatis.version>
-    <revision>1.0.0-SNAPSHOT</revision>
+    <nacos.version>1.8.0</nacos.version>
+    <poi.version>4.1.2</poi.version>
+    <pagehelper.starter.version>1.2.13</pagehelper.starter.version>
+    <lombok.version>1.18.10</lombok.version>
     <fastjson.version>1.2.47</fastjson.version>
+    <jackson.version>2.10.4</jackson.version>
+    <seata.version>1.4.0</seata.version>
+    <commons-collections.version>3.2.2</commons-collections.version>
+    <cat.version>3.0.0</cat.version>
+    <hutool.version>5.3.10</hutool.version>
+    <xxl-job-core.version>2.2.0</xxl-job-core.version>
+    <flowable.version>6.5.0</flowable.version>
+    <redisson.version>3.11.6</redisson.version>
+    <nacos-config-spring-boot.version>0.2.7</nacos-config-spring-boot.version>
     <org.springframework.cloud.version>2.2.6.RELEASE</org.springframework.cloud.version>
     <druid.version>1.1.21</druid.version>
-    <junit.version>4.12</junit.version>
-    <mysql.version>5.1.46</mysql.version>
-    <zkclient.version>0.11</zkclient.version>
-    <commons-collections.version>3.2.2</commons-collections.version>
+    <commons-io.version>2.8.0</commons-io.version>
     <swagger.version>2.8.0</swagger.version>
-    <poi.version>4.1.2</poi.version>
-    <hutool.version>5.3.10</hutool.version>
+    <spring-cloud-starter-alibaba-sentinel.version>2.2.3.RELEASE</spring-cloud-starter-alibaba-sentinel.version>
+    <seata-spring-boot-starter.version>1.4.0</seata-spring-boot-starter.version>
     <commons-lang3.version>3.11</commons-lang3.version>
-    <guava.version>18.0</guava.version>
-    <rocketmq.version>4.8.0</rocketmq.version>
-    <justauth.version>1.16.0</justauth.version>
-    <jackson.version>2.10.4</jackson.version>
-    <flowable.version>6.5.0</flowable.version>
-    <nacos-config-spring-boot.version>0.2.1</nacos-config-spring-boot.version>
-    <spring-cloud-starter-alibaba-nacos-config.version>0.2.1.RELEASE</spring-cloud-starter-alibaba-nacos-config.version>
+    <mysql.version>5.1.46</mysql.version>
+    <mybatisplus.version>3.3.2</mybatisplus.version>
+    <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
+    <mybatis.version>3.5.3</mybatis.version>
+    <curator.version>2.12.0</curator.version>
     <mybatis.spring.version>2.0.3</mybatis.spring.version>
+    <spring-cloud-starter-alibaba-nacos-config.version>0.2.1.RELEASE</spring-cloud-starter-alibaba-nacos-config.version>
+    <justauth.version>1.16.0</justauth.version>
+    <guava.version>18.0</guava.version>
+    <zookeeper.version>3.4.12</zookeeper.version>
+    <rocketmq.version>4.8.0</rocketmq.version>
+    <revision>1.0.0-SNAPSHOT</revision>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -436,6 +438,16 @@
         <groupId>cn.hutool</groupId>
         <artifactId>hutool-core</artifactId>
         <version>${hutool.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        <version>${spring-cloud-starter-alibaba-sentinel.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba.csp</groupId>
+        <artifactId>sentinel-datasource-nacos</artifactId>
+        <version>${nacos.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
