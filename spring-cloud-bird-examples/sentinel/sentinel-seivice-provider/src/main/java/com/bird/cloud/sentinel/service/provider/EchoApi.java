@@ -14,4 +14,7 @@ public interface EchoApi {
 
     @RequestMapping(method = RequestMethod.GET,value = "/echo/{name}")
     String echo(@PathVariable(value = "name") String name);
+
+    @RequestMapping(method = RequestMethod.GET,value = "/hello")
+    String hello( String name);
 }
