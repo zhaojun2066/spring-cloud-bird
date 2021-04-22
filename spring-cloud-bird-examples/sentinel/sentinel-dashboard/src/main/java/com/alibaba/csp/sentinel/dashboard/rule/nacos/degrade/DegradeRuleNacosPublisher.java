@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 import static com.alibaba.csp.sentinel.dashboard.rule.nacos.NacosConstants.DEGRADE_DATA_ID_POSTFIX;
+import static com.alibaba.csp.sentinel.dashboard.rule.nacos.NacosConstants.GROUP_ID;
 
 /**
  * @program: spring-cloud-bird
@@ -33,7 +34,6 @@ public class DegradeRuleNacosPublisher implements DynamicRulePublisher<List<Degr
     /**
      * 你的降级规则groupId
      */
-    public static final String GROUP_ID = "default";
 
     @Override
     public void publish(String app, List<DegradeRuleEntity> rules) throws Exception {

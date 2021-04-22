@@ -21,8 +21,11 @@ public class EchoController implements EchoApi {
             blockHandler = "block" ,blockHandlerClass = Handler.class // block 优先级大于 fallback
       )
     @Override
-    public String echo(String name) {
-        return  "echo " + name ;
+    public User echo(String name) {
+        User user = new User();
+        user.setAge(10);
+        user.setName(name);
+        return   user;
     }
 
 

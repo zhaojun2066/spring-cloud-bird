@@ -29,6 +29,7 @@
         <module>nacos/nacos-config-spring-cloud-example</module>
         <module>nacos/nacos-config-spring-boot-example</module>
         <module>sentinel/sentinel-seivice-provider</module>
+        <module>sentinel/sentinel-seivice-consumer</module>
     </modules>
 
 

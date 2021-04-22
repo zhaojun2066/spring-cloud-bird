@@ -39,11 +39,13 @@ public class MyBlockHandler  implements BlockExceptionHandler {
         }
 
         // http状态码
-        response.setStatus(500);
+        response.setStatus(200);
         response.setCharacterEncoding("utf-8");
         response.setHeader("Content-Type", "application/json;charset=utf-8");
         response.setContentType("application/json;charset=utf-8");
         // msg可以是對象
-        response.getWriter().write(JSONObject.toJSONString(msg));
+        User user =  new User();
+        user.setDesc(msg);
+        response.getWriter().write(JSONObject.toJSONString(user));
     }
 }
