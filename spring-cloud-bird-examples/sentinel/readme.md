@@ -12,4 +12,11 @@
       sentinel:
         enabled: true 
         
-    FeignClient 注解已经被   sentinel 完全兼容      
+    FeignClient 注解已经被   sentinel 完全兼容
+    
+
+### todo
+     datasource:                   #添加Nacos数据源配置
+            flow:
+              nacos:      
+     将这些配置 都设置成默认值，然后可以自行覆盖                   
